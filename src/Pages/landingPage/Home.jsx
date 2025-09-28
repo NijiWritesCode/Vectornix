@@ -9,6 +9,7 @@ import StackCard from './components/StackCard'
 import { SiDocker, SiFastapi, SiMinio, SiPostgresql, SiPython, SiReact, SiRedis } from 'react-icons/si'
 import GetStarted from './components/GetStarted'
 import Footer from '../../components/footer/footer'
+import Reveal from '../../components/reveal/Reveal'
 
 const Home = () => {
   return (
@@ -51,6 +52,7 @@ const Home = () => {
 
       <main>
         {/* Features Section */}
+        <Reveal>
         <section className="text-center mt-16 px-4 sm:px-6 md:px-10 mb-20">
           <div className="max-w-2xl mx-auto">
             <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl mb-3 text-gray-900 dark:text-white">
@@ -79,8 +81,10 @@ const Home = () => {
             />
           </div>
         </section>
+        </Reveal>
 
         {/* Showcase Section */}
+        <Reveal>
         <section className="text-center mt-20 sm:mt-28 lg:mt-40 px-4 sm:px-6 md:px-10 mb-20">
           <div className="max-w-2xl mx-auto">
             <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl mb-3 text-gray-900 dark:text-white">
@@ -97,8 +101,10 @@ const Home = () => {
             <ShowcaseCard img={image} topic="Research Mode" />
           </div>
         </section>
+        </Reveal>
 
         {/* Tech Stack Section */}
+        <Reveal>
        <section className="px-6 py-16 bg-gray-50 dark:bg-gray-900">
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto mb-12">
@@ -121,10 +127,13 @@ const Home = () => {
         <StackCard icon={SiMinio} color="#C72E49" label="MinIO" />
       </div>
     </section>
+    </Reveal>
 
+    <Reveal>
     <section>
       <GetStarted />
     </section>
+    </Reveal>
       </main>
 
       <footer>
