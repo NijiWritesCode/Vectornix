@@ -4,6 +4,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './Pages/landingPage/Home'
 import Docs from './Pages/docs/docs'
+import Features from './Pages/features/Features'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,12 @@ const router = createBrowserRouter([
     path: '/docs',
     element: <Docs />
   },
+
+  {
+    path: '/features',
+    element: <Features />
+  },
+
   {
     path: '*',
     element: <h1>Page Not Found</h1>

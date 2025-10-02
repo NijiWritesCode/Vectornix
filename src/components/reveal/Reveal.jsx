@@ -24,7 +24,7 @@ const Reveal = ({ children, className = "", threshold = 0.12 }) => {
     <div
       ref={ref}
       className={`${className} transition-all duration-700 ease-out transform will-change-transform ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
     >
       {children}
