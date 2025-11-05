@@ -5,6 +5,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
 import logo from "../../../public/vc-logo.png";
 import { Link } from "react-router-dom";
 
@@ -41,32 +42,39 @@ const Navbar = () => {
     }
   }, [theme]);
 
+  // Close mobile menu when a link is clicked
+  const handleLinkClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-6 py-4 flex justify-between items-center">
+    <motion.nav
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="fixed top-0 left-0 w-full z-50 
+        bg-white/90 dark:bg-gray-900/90 
+        backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 
+        px-6 py-4 flex justify-between items-center transition-colors"
+    >
       {/* Left Side: Logo */}
-      <div className="flex items-center space-x-2">
+      <Link to="/" className="flex items-center space-x-2" onClick={handleLinkClick}>
         <img src={logo} alt="logo" width={35} />
         <span className="text-lg font-semibold text-gray-900 dark:text-white">
           Vectornix
         </span>
-      </div>
+      </Link>
 
       {/* Middle: Desktop Nav Links */}
       <ul className="hidden md:flex space-x-6 text-sm font-medium text-gray-700 dark:text-gray-300">
         <li className="hover:text-blue-600 cursor-pointer transition">
-          <Link to={'/'}>
-            Home
-          </Link>
+          <Link to="/">Home</Link>
         </li>
         <li className="hover:text-blue-600 cursor-pointer transition">
-          <Link to={'/docs'}>
-            Docs
-          </Link>
+          <Link to="/docs">Docs</Link>
         </li>
         <li className="hover:text-blue-600 cursor-pointer transition">
-          <Link to={'/features'}>
-            Features
-          </Link>
+          <Link to="/features">Features</Link>
         </li>
       </ul>
 
@@ -109,20 +117,23 @@ const Navbar = () => {
       >
         <ul className="flex flex-col items-center space-y-4 py-6 text-gray-700 dark:text-gray-300 font-medium">
           <li className="hover:text-blue-600 cursor-pointer transition">
-            Docs
+            <Link to="/" onClick={handleLinkClick}>
+              Home
+            </Link>
           </li>
           <li className="hover:text-blue-600 cursor-pointer transition">
-            Examples
+            <Link to="/docs" onClick={handleLinkClick}>
+              Docs
+            </Link>
           </li>
           <li className="hover:text-blue-600 cursor-pointer transition">
-            Blog
-          </li>
-          <li className="hover:text-blue-600 cursor-pointer transition">
-            Community
+            <Link to="/features" onClick={handleLinkClick}>
+              Features
+            </Link>
           </li>
         </ul>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
